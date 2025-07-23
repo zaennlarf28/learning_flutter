@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zaenal/list_view/detail_wisata.dart'; // pastikan import ini benar
 
 class AnimeScreen extends StatelessWidget {
   AnimeScreen({super.key});
@@ -6,34 +7,34 @@ class AnimeScreen extends StatelessWidget {
   // data
   final List<Map<String, dynamic>> animeData = [
     {
-      "nama" : "Guts",
-      "anime" : "Berserk",
-      "image" : "assets/images/berserk.jpg",
-      "desc" : "Tersakiti",
+      "nama": "Guts",
+      "anime": "Berserk",
+      "image": "images/guts.jpg",
+      "desc": "Tersakiti",
     },
     {
-      "nama" : "Ikari Shinji",
-      "anime" : "Evangelion",
-      "image" : "assets/images/evangelion.jpg",
-      "desc" : "Stress",
+      "nama": "Ikari Shinji",
+      "anime": "Evangelion",
+      "image": "images/ikari.jpg",
+      "desc": "Stress",
     },
     {
-      "nama" : "Eren Yeager",
-      "anime" : "AOT",
-      "image" : "assets/images/aot.jpg",
-      "desc" : "Bantai",
+      "nama": "Eren Yeager",
+      "anime": "AOT",
+      "image": "images/ren.jpg",
+      "desc": "Bantai-bantai",
     },
     {
-      "nama" : "Thorfinn",
-      "anime" : "Vindland Saga",
-      "image" : "assets/images/vindland.jpg",
-      "desc" : "Balas Dendam",
+      "nama": "Thorfinn",
+      "anime": "Vindland Saga",
+      "image": "images/thorfin.jpg",
+      "desc": "Budak",
     },
     {
-      "nama" : "Kaneki Ken",
-      "anime" : "Tokyo Ghoul",
-      "image" : "assets/images/tokyoghoul.jpg",
-      "desc" : "Tersakiti",
+      "nama": "Kaneki Ken",
+      "anime": "Tokyo Ghoul",
+      "image": "images/ken.jpg",
+      "desc": "Tersakiti",
     },
   ];
 
@@ -43,7 +44,7 @@ class AnimeScreen extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Colors.white, Colors.grey, Colors.black],
             begin: Alignment.bottomLeft,
@@ -54,19 +55,32 @@ class AnimeScreen extends StatelessWidget {
           itemCount: animeData.length,
           itemBuilder: (context, index) {
             return GestureDetector(
-              onTap: (){},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailAnimeScreen(
+                      nama: animeData[index]["nama"],
+                      anime: animeData[index]["anime"],
+                      image: animeData[index]["image"],
+                      desc: animeData[index]["desc"],
+                    ),
+                  ),
+                );
+              },
               child: Container(
                 alignment: Alignment.bottomLeft,
-                height: 250,
-                margin: EdgeInsets.all(10),
+                height: 200,
+                margin: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(image: AssetImage("${animeData[index]['image']}"),
-                  fit: BoxFit.cover,
+                  image: DecorationImage(
+                    image: AssetImage("${animeData[index]['image']}"),
+                    fit: BoxFit.cover,
                   ),
                 ),
                 child: Container(
-                  padding: EdgeInsets.all(6),
+                  padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.black,
@@ -74,13 +88,16 @@ class AnimeScreen extends StatelessWidget {
                   child: Text(
                     "${animeData[index]["nama"]} - ${animeData[index]["anime"]}",
                     textAlign: TextAlign.justify,
-                    style: TextStyle(fontSize: 14,
-                    color: Colors.white),
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
             );
-          }),
+          },
+        ),
       ),
     );
   }
