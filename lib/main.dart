@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_zaenal/anime_screen.dart';
+import 'package:flutter_zaenal/list_view/anime_screen.dart';
 import 'package:flutter_zaenal/container/dua.dart';
 import 'package:flutter_zaenal/container/satu.dart';
 import 'package:flutter_zaenal/container/tiga.dart';
