@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zaenal/form/form_screen.dart';
 import 'package:flutter_zaenal/list_view/anime_screen.dart';
 import 'package:flutter_zaenal/container/dua.dart';
 import 'package:flutter_zaenal/container/satu.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_zaenal/list_view/contoh_dua.dart';
 import 'package:flutter_zaenal/list_view/contoh_empat.dart';
 import 'package:flutter_zaenal/list_view/contoh_satu.dart';
 import 'package:flutter_zaenal/list_view/contoh_tiga.dart';
+import 'package:flutter_zaenal/list_view/latihan_dua.dart';
 import 'package:flutter_zaenal/row_column/column_satu.dart';
 import 'package:flutter_zaenal/row_column/latihan_satu.dart';
 import 'package:flutter_zaenal/row_column/row_column.dart';
@@ -23,7 +25,7 @@ class BelajarFlutter extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AnimeScreen(),
+      home: BelajarForm(),
     );
   }
 }
